@@ -36,7 +36,13 @@ public class JobRestController {
     }
 
     @DeleteMapping("jobPost/{postId}")
-    public JobPost deleteJob(@PathVariable("postId") int postId){
-        return jobService.deleteJob(postId);
+    public void deleteJob(@PathVariable("postId") int postId){
+        jobService.deleteJob(postId);
+    }
+
+    @GetMapping("load")
+    public String loadData(){
+        jobService.load();
+        return "success";
     }
 }
